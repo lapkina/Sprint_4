@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.containsString;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.junit.Test;
 import org.junit.After;
 import ru.yandex.praktikum.Samokat.PO.MainPage;
@@ -23,15 +22,16 @@ public class TestsOrder {
 
     public void startUp() {
         WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        // переход на страницу тестового приложения
+        driver.get("https://qa-scooter.praktikum-services.ru");
     }
 
     @Test
     //сначала на первую кнопку
     public void TestOderUpPositive() {
 
-        WebDriver driver = new ChromeDriver();
-        // переход на страницу тестового приложения
-        driver.get("https://qa-scooter.praktikum-services.ru");
+
 
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForOrderUp();
@@ -65,17 +65,10 @@ public class TestsOrder {
     @Test
     public void TestOderDownPositive() {
 
-        WebDriver driver = new ChromeDriver();
-        // переход на страницу тестового приложения
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
         objMainPage.clickForOrderDown();
-
-
         FirstPageOfOrders objFirstPageOfOrders = new FirstPageOfOrders(driver);
-
         objFirstPageOfOrders.setNameInput("Иван");
         objFirstPageOfOrders.setLastNameInput("Неиван");
         objFirstPageOfOrders.setAdressInput("мой адрес не дом и не улица");
@@ -83,9 +76,7 @@ public class TestsOrder {
         objFirstPageOfOrders.clickMetroSudgestAeroport();
         objFirstPageOfOrders.setPhoneInput("89818111111");
         objFirstPageOfOrders.clickForContinueButton();
-
         SecondPageOfOrders objSecondPageOfOrders = new SecondPageOfOrders(driver);
-
         objSecondPageOfOrders.setDateInput("15.12.2021");
         objSecondPageOfOrders.clickBlackCheckBox();
         objSecondPageOfOrders.clickTimeInput();
@@ -93,7 +84,6 @@ public class TestsOrder {
         objSecondPageOfOrders.clickOrderButtonByOrder();
         objSecondPageOfOrders.clickButtonYesByOrder();
         objSecondPageOfOrders.getTextAboutOrder();
-
         MatcherAssert.assertThat(objSecondPageOfOrders.getTextAboutOrder(), containsString("Заказ оформлен"));
 
     }

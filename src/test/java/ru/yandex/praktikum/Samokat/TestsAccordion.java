@@ -19,22 +19,18 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TestsAccordion {
     private WebDriver driver;
 
-    @Before
 
+    @Before
     public void startUp() {
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        driver = new ChromeDriver(options);
+        driver.get("https://qa-scooter.praktikum-services.ru");
     }
-
     @Test
 
     public void TestAnswerAboutCost() {
-
-        //WebDriver driver = new ChromeDriver();
-        // переход на страницу тестового приложения
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
 
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
@@ -46,11 +42,6 @@ public class TestsAccordion {
     @Test
     public void TestAnswerAboutMany() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
         objMainPage.clickQuestionsMany();
@@ -60,11 +51,6 @@ public class TestsAccordion {
     @Test
 
     public void TestAnswerAboutTime() {
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
 
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
@@ -78,11 +64,6 @@ public class TestsAccordion {
 
     public void TestAnswerAboutToday() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
         objMainPage.clickQuestionsToday();
@@ -95,12 +76,7 @@ public class TestsAccordion {
 
     public void TestAnswerAboutEarlier() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
-        MainPage objMainPage = new MainPage(driver);
+       MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
         objMainPage.clickQuestionsEarlier();
         objMainPage.getAnswerAboutEarlier();
@@ -111,11 +87,6 @@ public class TestsAccordion {
     @Test
 
     public void TestAnswerAboutCharger() {
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
 
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
@@ -128,11 +99,6 @@ public class TestsAccordion {
 
     public void TestAnswerAboutCancel() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
         objMainPage.clickQuestionsCancel();
@@ -143,11 +109,6 @@ public class TestsAccordion {
     @Test
 
     public void TestAnswerAboutMKAD() {
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver( options );
-        driver.get("https://qa-scooter.praktikum-services.ru");
 
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickForCookies();
