@@ -10,73 +10,81 @@ public class FirstPageOfOrders {
 
     //инпут Имя
 
-    private WebDriver driver;
-    private By nameInput = By.xpath("((//input[@placeholder ='* Имя'])");
+    private final WebDriver driver;
+    private final By nameInput = By.xpath("(//input[@placeholder ='* Имя'])");
 
     //инпут Фамилия
-    private By lastNameInput = By.xpath("(//input[@placeholder ='* Фамилия'])");
+    private final By lastNameInput = By.xpath("(//input[@placeholder ='* Фамилия'])");
 
     //инпут Адрес
-    private By adressInput = By.xpath("(//input[@placeholder ='* Адрес: куда привезти заказ'])");
+    private final By adressInput = By.xpath("(//input[@placeholder ='* Адрес: куда привезти заказ'])");
     //инпут Метро
-    private By metroInput = By.xpath("(//input[@placeholder ='* Станция метро'])");
+    private final By metroInput = By.xpath("(//input[@placeholder ='* Станция метро'])");
 
     //выбор метро в выпадашке- Лубянка
-    private By metroSudgestLubyanka = By.className("Order_Text__2broi");
+    private final By metroSudgestLubyanka = By.className("Order_Text__2broi");
 
     //выбор метро в выпадашке - Аэропорт
-    private By metroSudgestAeroport = By.className("Order_Text__2broi");
+    private final By metroSudgestAeroport = By.className("Order_Text__2broi");
 
     //инпут Телефон
-    private By phoneInput = By.xpath("(//input[@placeholder ='* Телефон: на него позвонит курьер'])");
+    private final By phoneInput = By.xpath("(//input[@placeholder ='* Телефон: на него позвонит курьер'])");
 
     //кнопка Далее
-    private By continueButton = By.xpath("//button[text()='Далее']");
+    private final By continueButton = By.xpath("//button[text()='Далее']");
 
 
     public FirstPageOfOrders(WebDriver driver) {
         this.driver = driver;
 
     }
-        //МЕТОДЫ
-        //метод для заполнения поля имя
-        public void setNameInput (String name){
-            driver.findElement(nameInput).sendKeys(name);
-        }
 
-        //метод для заполнения поля фамилия
-        public void setLastNameInput (String lastName){
-            driver.findElement(lastNameInput).sendKeys(lastName);
-        }
-
-        //метод для заполнения поля адрес
-        public void setAdressInput (String adress){
-            driver.findElement(adressInput).sendKeys(adress);
-        }
-
-        //метод для заполнения выпадашки метро. один раз - Лубянка, второй - Аэропорт
-
-        public void setMetroInput (String metro){
-            driver.findElement(metroInput).sendKeys(metro);
-        }
-        //метод клик для Лубянки
-        public void clickMetroSudgestLubyanka () {
-            driver.findElement(metroSudgestLubyanka).click();
-        }
-
-        //метод клик для Аэропорт
-        public void clickMetroSudgestAeroport () {
-            driver.findElement(metroSudgestAeroport).click();
-        }
-        //метод для заполнения номера телефона
-        public void setPhoneInput (String phone){
-            driver.findElement(phoneInput).sendKeys(phone);
-        }
-
-        //метод клик по кнопке далее
-        public void clickForContinueButton () {
-            driver.findElement(continueButton).click();
-
-        }
+    //МЕТОДЫ
+    //клик в имя
+    public void clickNameInput() {
+        driver.findElement(nameInput).click();
     }
+
+    //метод для заполнения поля имя
+    public void setNameInput(String name) {
+        driver.findElement(nameInput).sendKeys(name);
+    }
+
+    //метод для заполнения поля фамилия
+    public void setLastNameInput(String lastName) {
+        driver.findElement(lastNameInput).sendKeys(lastName);
+    }
+
+    //метод для заполнения поля адрес
+    public void setAdressInput(String adress) {
+        driver.findElement(adressInput).sendKeys(adress);
+    }
+
+    //метод для заполнения выпадашки метро. один раз - Лубянка, второй - Аэропорт
+
+    public void setMetroInput(String metro) {
+        driver.findElement(metroInput).sendKeys(metro);
+    }
+
+    //метод клик для Лубянки
+    public void clickMetroSudgestLubyanka() {
+        driver.findElement(metroSudgestLubyanka).click();
+    }
+
+    //метод клик для Аэропорт
+    public void clickMetroSudgestAeroport() {
+        driver.findElement(metroSudgestAeroport).click();
+    }
+
+    //метод для заполнения номера телефона
+    public void setPhoneInput(String phone) {
+        driver.findElement(phoneInput).sendKeys(phone);
+    }
+
+    //метод клик по кнопке далее
+    public void clickForContinueButton() {
+        driver.findElement(continueButton).click();
+
+    }
+}
 
